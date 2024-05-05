@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 const Card = ({ children, reverse }) => {
   return (
     <div
-      className={`bg-stone-900 flex my-2 p-3 justify-center  rounded-xl ${
-        reverse ? `bg-white text-black` : `bg-slate-700 text-white`
+      className={` flex p-3 justify-center rounded-xl m-auto w-3/12 ${
+        reverse ? `bg-white text-black` : `bg-zinc-900 text-white`
       }`}
       // style={{
       //   background: reverse ? "#fff" : "#1c1c1c",
