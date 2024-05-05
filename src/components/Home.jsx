@@ -7,7 +7,7 @@ const Home = () => {
   const [todo, setTodo] = useState(todoData);
 
   return (
-    <div className="flex flex-col my-5 items-center bg-black ">
+    <div className="flex flex-col my-5 items-center ">
       <Form></Form>
       <List todo={todo} />
     </div>
