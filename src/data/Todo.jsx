@@ -10,14 +10,14 @@ const todoData = [
     id: 2,
     title: "Meeting",
     task: "Lunch meeting with client",
-    day: "Friday",
+    day: "Thursday",
     done: false,
   },
   {
     id: 3,
-    title: "Barber Shop",
+    title: "Barbershop",
     task: "Trim my beard at 11.30",
-    day: "Sunday",
+    day: "Saturday",
     done: false,
   },
 ];

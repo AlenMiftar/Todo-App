@@ -5,22 +5,28 @@ import Button from "./Button";
 const Form = () => {
   return (
     <Card>
-      <form className="">
-        <div className="flex flex-col">
-          <h1 className="text-4xl">Add a new ToDo</h1>
-          <label htmlFor="">
+      <form className="bg-black ">
+        <div className="flex flex-col items-center ">
+          <h1 className="text-4xl font-semibold p-2">Add a new ToDo</h1>
+          <label htmlFor="title">
             <p>Title</p>
-            <input type="text" />
+            <input
+              type="text"
+              className="w-44 border-b-2 text-white bg-black"
+            />
           </label>
 
-          <label htmlFor="">
+          <label htmlFor="task">
             <p>Task</p>
-            <input type="text" />
+            <input
+              type="text"
+              className="w-44 border-b-2 text-white bg-black"
+            />
           </label>
 
-          <label htmlFor="">
+          <label htmlFor="" className="w-44">
             <p>Day</p>
-            <select name="" id="">
+            <select name="" id="" className="w-44  text-white bg-black">
               <option value="" disabled={true}>
                 Select day
               </option>

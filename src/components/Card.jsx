@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const Card = ({ children, reverse }) => {
   return (
     <div
-      className={` flex p-3 justify-center rounded-xl m-auto w-3/12 ${
+      className={` flex justify-center rounded-xl m-auto my-3 p-2 ${
         reverse ? `bg-white text-black` : `bg-zinc-900 text-white`
       }`}
       // style={{

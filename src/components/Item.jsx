@@ -17,16 +17,16 @@ const Item = ({ todo }) => {
 
   return (
     <Card>
-      <div className="card-container flex flex-col gap-2 ">
+      <div className="card-container flex flex-col gap-5 p-2 ">
         <div className="flex-container flex  items-center gap-8 ">
-          <div className="title text-3xl">{todo.title}</div>
-          <div className="btns flex gap-3">
+          <div className="title text-3xl ">{todo.title}</div>
+          <div className="btns flex  gap-3">
             <MdEdit style={{ color: "#f7cd62", marginRight: ".5rem" }} />
             <MdDeleteForever style={{ color: "#ed844f" }} />
           </div>
         </div>
 
-        <div className="task flex flex-col">{todo.task}</div>
+        <div className="task ">{todo.task}</div>
         <div className="flex-container flex justify-between">
           <div className=" day flex items-center">
             <MdOutlineCalendarToday className="calendar" />
