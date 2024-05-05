@@ -3,7 +3,7 @@ import { BsPlus } from "react-icons/bs";
 
 const Button = ({ children, type, isDisabled }) => {
   return (
-    <button type={type} disabled={isDisabled} className="bg-white">
+    <button type={type} disabled={isDisabled} className="bg-sky-800 text-black">
       <BsPlus className="text-5xl" />
       {children}
     </button>
