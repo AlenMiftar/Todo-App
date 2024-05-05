@@ -5,9 +5,9 @@ import Button from "./Button";
 const Form = () => {
   return (
     <Card>
-      <form>
-        <div>
-          <h1>Add a new ToDo</h1>
+      <form className="">
+        <div className="flex flex-col">
+          <h1 className="text-4xl">Add a new ToDo</h1>
           <label htmlFor="">
             <p>Title</p>
             <input type="text" />
@@ -33,7 +33,7 @@ const Form = () => {
               <option value="Sunday">Sunday</option>
             </select>
           </label>
-          <Button type="submit ">
+          <Button type="submit">
             <p>Add ToDo</p>
           </Button>
         </div>

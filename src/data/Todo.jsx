@@ -15,7 +15,7 @@ const todoData = [
   },
   {
     id: 3,
-    title: "Berber Shop",
+    title: "Barber Shop",
     task: "Trim my beard at 11.30",
     day: "Sunday",
     done: false,
