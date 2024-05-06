@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import List from "./List";
 import todoData from "../data/Todo.jsx";
 import Form from "./Form.jsx";
 
 const Home = () => {
-  const [todo, setTodo] = useState(todoData);
+  const [todo, setTodo] = useState([]);
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  const fetchTodos = async () => {
+    const response = await fetch("http://localhost:6001/todos");
+    const data = await response.json();
+
+    setTodo(data);
+  };
 
   const addTodo = (newTodo) => {
     newTodo.id = uuidv4();
@@ -13,7 +24,7 @@ const Home = () => {
   };
 
   const deleteTodo = (id) => {
-    if (window.confirm("Are you sure you want to delete the TodDo?")) {
+    if (window.confirm("Are you sure you want to delete the ToDo?")) {
       setTodo(todo.filter((item) => item.id !== id));
     }
   };
