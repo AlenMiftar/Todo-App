@@ -3,14 +3,19 @@ import Card from "./Card";
 import Button from "./Button";
 
 const Form = () => {
+  const [title, setTitle] = useState("");
+  const [task, setTask] = useState("");
+  const [day, setDay] = useState("");
+
   return (
-    <Card>
-      <form className=" ">
+    <Card create={true}>
+      <form>
         <div className="flex flex-col  items-center ">
           <h1 className="text-3xl mb-4 font-semibold">Add a new ToDo</h1>
           <label htmlFor="title">
             <p>Title</p>
             <input
+              value={title}
               type="text"
               className="w-44 border-b-2 text-white bg-transparent"
             />
@@ -19,6 +24,7 @@ const Form = () => {
           <label htmlFor="task">
             <p>Task</p>
             <input
+              value={task}
               type="text"
               className="w-44 border-b-2 text-white bg-transparent"
             />
@@ -26,7 +32,12 @@ const Form = () => {
 
           <label htmlFor="" className="w-44">
             <p>Day</p>
-            <select name="" id="" className="w-44  text-white  bg-transparent ">
+            <select
+              value={day}
+              name=""
+              id=""
+              className="w-44  text-white  bg-transparent "
+            >
               <option
                 value=""
                 disabled={true}
