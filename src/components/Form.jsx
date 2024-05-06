@@ -2,20 +2,37 @@ import { useState } from "react";
 import Card from "./Card";
 import Button from "./Button";
 
-const Form = () => {
+const Form = ({ addTodo }) => {
   const [title, setTitle] = useState("");
   const [task, setTask] = useState("");
   const [day, setDay] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newTodo = {
+      title,
+      task,
+      day,
+    };
+
+    addTodo(newTodo);
+    console.log(newTodo);
+    setTitle("");
+    setTask("");
+    setDay("");
+  };
+
   return (
     <Card create={true}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="flex flex-col  items-center ">
           <h1 className="text-3xl mb-4 font-semibold">Add a new ToDo</h1>
           <label htmlFor="title">
             <p>Title</p>
             <input
               value={title}
+              onChange={(e) => setTitle(e.target.value)}
               type="text"
               className="w-44 border-b-2 text-white bg-transparent"
             />
@@ -25,6 +42,7 @@ const Form = () => {
             <p>Task</p>
             <input
               value={task}
+              onChange={(e) => setTask(e.target.value)}
               type="text"
               className="w-44 border-b-2 text-white bg-transparent"
             />
@@ -34,6 +52,7 @@ const Form = () => {
             <p>Day</p>
             <select
               value={day}
+              onChange={(e) => setDay(e.target.value)}
               name=""
               id=""
               className="w-44  text-white  bg-transparent "
