@@ -7,10 +7,11 @@ import {
 import Card from "./Card";
 import Checkbox from "./Checkbox";
 
-const Item = ({ todo }) => {
+const Item = ({ todo, handleDelete, editTodo }) => {
   //const [title, setTitle] = useState("Title");
   //const [task, setTask] = useState("Task");
   const [done, setDone] = useState(todo.done);
+
   const handleChange = (e) => {
     setDone(e.target.checked);
   };
@@ -21,8 +22,14 @@ const Item = ({ todo }) => {
         <div className="flex-container flex  items-center gap-8 ">
           <div className="title text-3xl ">{todo.title}</div>
           <div className="btns flex  gap-3">
-            <MdEdit style={{ color: "#f7cd62", marginRight: ".5rem" }} />
-            <MdDeleteForever style={{ color: "#ed844f" }} />
+            <MdEdit
+              style={{ color: "#f7cd62", marginRight: ".5rem" }}
+              onClick={() => handleDelete(todo.id)}
+            />
+            <MdDeleteForever
+              style={{ color: "#ed844f" }}
+              onClick={() => editTodo(todo)}
+            />
           </div>
         </div>
 
