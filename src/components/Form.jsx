@@ -26,7 +26,7 @@ const Form = ({ addTodo }) => {
   return (
     <Card create={true}>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col  items-center ">
+        <div className="flex flex-col items-center ">
           <h1 className="text-3xl mb-4 font-semibold">Add a new ToDo</h1>
           <label htmlFor="title">
             <p>Title</p>
