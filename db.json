@@ -4,34 +4,39 @@
       "name": "test",
       "email": "test@gmail.com",
       "password": "123456",
-      "id": 1
+      "id": "1"
+    },
+    {
+      "id": "3902",
+      "username": "s",
+      "email": "muslimm_12@hotmail.com",
+      "password": "asdasfvdv"
     }
   ],
-
   "todos": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Laundry",
       "task": "Do the laundry at 14.00",
       "day": "Wednesday",
       "done": false
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Meeting",
       "task": "Lunch meeting with client",
       "day": "Thursday",
       "done": false
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Barbershop",
       "task": "Trim my beard at 11.30",
       "day": "Saturday",
       "done": false
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "test",
       "task": "testing",
       "day": "Thursday",
