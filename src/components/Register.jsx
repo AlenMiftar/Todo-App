@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import Card from "./Card";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const checkEmail = (users) => {
     const user = users.find((user) => user.email === email);
@@ -17,6 +20,11 @@ const Register = () => {
       .get("http://localhost:6001/users")
       .then((res) => checkEmail(res.data, email));
 
+    if (username === "" || email === "" || password === "") {
+      alert("All fields are required!");
+      Register();
+    }
+
     if (user) {
       alert("User already exists!");
     } else {
@@ -24,11 +32,12 @@ const Register = () => {
       axios
         .post("http://localhost:6001/users", user)
         .then(alert("User created!"));
+      navigate("/");
     }
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col ">
       <Card>
         <form className="flex flex-col justify-center items-center w-full h-52 p-8">
           <h1 className="text-2xl font-semibold my-5 w-full">Register User</h1>
@@ -46,7 +55,6 @@ const Register = () => {
               className="text-white bg-transparent mt-3 "
               type="email"
               placeholder="Email"
-              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -56,7 +64,6 @@ const Register = () => {
               className="text-white bg-transparent mt-3"
               type="password"
               placeholder="Password"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
