@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 
 const Card = ({ children, reverse, create }) => {
   return (
@@ -26,10 +26,10 @@ Card.defaultProps = {
   create: false,
 };
 
-Card.PropTypes = {
-  children: PropTypes.node.isRequired,
-  reverse: PropTypes.bool,
-  create: PropTypes.bool,
+Card.propTypes = {
+  children: propTypes.node.isRequired,
+  reverse: propTypes.bool,
+  create: propTypes.bool,
 };
 
 export default Card;

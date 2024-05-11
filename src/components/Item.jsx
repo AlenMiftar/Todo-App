@@ -8,8 +8,8 @@ import Card from "./Card";
 import Checkbox from "./Checkbox";
 
 const Item = ({ todo, handleDelete, editTodo }) => {
-  //const [title, setTitle] = useState("Title");
-  //const [task, setTask] = useState("Task");
+  // const [title, setTitle] = useState(title);
+  // const [task, setTask] = useState(task);
   const [done, setDone] = useState(todo.done);
 
   const handleChange = (e) => {

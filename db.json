@@ -5,6 +5,12 @@
       "name": "test",
       "email": "test@gmail.com",
       "password": "123456"
+    },
+    {
+      "id": "c790",
+      "username": "alen",
+      "email": "banan@",
+      "password": "123456"
     }
   ],
   "todos": [
@@ -14,6 +20,18 @@
       "task": "testing",
       "day": "Thursday",
       "done": false
+    },
+    {
+      "id": "00549450-9ca1-433a-823c-2a539f819a47",
+      "title": "dds",
+      "task": "dssd",
+      "day": "Thursday"
+    },
+    {
+      "id": "5ec35330-89d0-4460-99e3-04e149642b1f",
+      "title": "dwe",
+      "task": "ttt",
+      "day": "Wednesday"
     }
   ]
 }

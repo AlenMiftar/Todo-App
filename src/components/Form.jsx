@@ -16,11 +16,16 @@ const Form = ({ addTodo }) => {
       day,
     };
 
-    addTodo(newTodo);
-    console.log(newTodo);
-    setTitle("");
-    setTask("");
-    setDay("");
+    if (title === "" || task === "" || day === "") {
+      alert("Please fill in title, task and day!");
+    } else {
+      addTodo(newTodo);
+      console.log(newTodo);
+
+      setTitle("");
+      setTask("");
+      setDay("");
+    }
   };
 
   return (
