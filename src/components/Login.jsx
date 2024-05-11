@@ -37,7 +37,10 @@ const Login = () => {
       });
 
     if (!user) {
-      alert("User does not exist!");
+      alert(
+        "Oops could not find user, make sure that email and password is correct!"
+      );
+      Login();
     } else if (user.email === email && user.password === password) {
       navigate("/");
       alert(`Welcome ${user.username}`);

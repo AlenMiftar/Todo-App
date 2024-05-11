@@ -23,16 +23,14 @@ const Register = () => {
     if (username === "" || email === "" || password === "") {
       alert("All fields are required!");
       Register();
-    }
-
-    if (user) {
+    } else if (user) {
       alert("User already exists!");
     } else {
       const user = { username, email, password };
-      axios
-        .post("http://localhost:6001/users", user)
-        .then(alert("User created!"));
-      navigate("/");
+      axios.post("http://localhost:6001/users", user);
+
+      navigate("/login");
+      alert("user created!");
     }
   };
 
