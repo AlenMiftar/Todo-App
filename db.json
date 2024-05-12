@@ -9,10 +9,16 @@
   ],
   "todos": [
     {
-      "id": "e8804f49-8d20-4483-a418-01dc7ff970dc",
-      "title": "Log issue",
-      "task": "fix so you have to log in to add todo",
-      "day": "Saturday"
+      "id": "f3dfd2e1-355b-44b5-9711-85627708d458",
+      "title": "Optimera",
+      "task": "Se till att man behöver logga in för att kunna lägga till ToDo",
+      "day": "Wednesday"
+    },
+    {
+      "id": "2e4a096e-c236-44a3-802f-4d89a1811b0c",
+      "title": "Redigera knappen",
+      "task": "Se till att man ska kunna redigera ",
+      "day": "Sunday"
     }
   ]
 }

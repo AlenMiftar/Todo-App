@@ -44,7 +44,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col items-center h-full">
+    <div className="flex flex-col items-center m-auto">
       <Form addTodo={addTodo} />
       <List todo={todo} handleDelete={deleteTodo} />
     </div>

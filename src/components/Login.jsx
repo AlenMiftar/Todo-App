@@ -25,7 +25,7 @@ const Login = () => {
 
     // error handling if email and password ...
     if (email === "" || password === "") {
-      alert("All fields are required!");
+      alert("Fill in your email and password!");
       Login();
     }
 
@@ -55,11 +55,13 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col m-auto">
       <Card>
-        <form className="flex flex-col justify-center items-center w-full h-52 p-8">
+        <form className="flex flex-col justify-center items-center w-full h-52 p-4">
           <label>
-            <h1 className=" text-2xl text-center">Sign in</h1>
+            <h1 className=" text-3xl font-extrabold text-center mb-5">
+              Sign in
+            </h1>
             <input
               className="text-white bg-transparent mt-3 "
               type="email"

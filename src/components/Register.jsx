@@ -15,30 +15,31 @@ const Register = () => {
     if (user) return user;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const user = await axios
       .get("http://localhost:6001/users")
       .then((res) => checkEmail(res.data, email));
 
     if (username === "" || email === "" || password === "") {
-      alert("All fields are required!");
+      alert("Please fill in your name, email and password!");
       Register();
     } else if (user) {
       alert("User already exists!");
+      Register();
     } else {
       const user = { username, email, password };
       axios.post("http://localhost:6001/users", user);
-
-      navigate("/login");
-      alert("user created!");
+      navigate("/");
+      alert(`Created user "${user.username}" successfully!`);
     }
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col m-auto">
       <Card>
-        <form className="flex flex-col justify-center items-center w-full h-52 p-8">
-          <h1 className="text-2xl font-semibold my-5 w-full">Register User</h1>
+        <form className="flex flex-col justify-center items-center w-full h-52 p-4">
+          <h1 className="text-3xl font-extrabold my-5">Register User</h1>
           <label>
             <input
               className="bg-transparent  "
