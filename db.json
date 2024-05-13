@@ -5,6 +5,12 @@
       "username": "Alen",
       "email": "support@developer.se",
       "password": "123456789"
+    },
+    {
+      "id": "8058",
+      "username": "Inger",
+      "email": "shöler@info.se",
+      "password": "321321"
     }
   ],
   "todos": [

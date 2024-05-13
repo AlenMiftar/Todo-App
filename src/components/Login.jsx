@@ -38,7 +38,7 @@ const Login = () => {
 
     if (!user) {
       alert(
-        "Oops could not find user, make sure that email and password is correct!"
+        "Failed to sign in. Please make sure that email and password is correct and try again"
       );
       Login();
     } else if (user.email === email && user.password === password) {
