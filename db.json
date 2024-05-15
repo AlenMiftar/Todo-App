@@ -13,5 +13,12 @@
       "password": "321321"
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "id": "a0485621-58b6-4602-97d4-2c76f1aa98ce",
+      "title": "ddd",
+      "task": "ddd",
+      "day": "Thursday"
+    }
+  ]
 }

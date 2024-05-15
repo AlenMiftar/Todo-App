@@ -12,16 +12,17 @@ const Home = () => {
     fetchTodos();
   }, []);
 
-  const fetchTodos = () => {
-    axios.get("http://localhost:6001/todos");
-  };
-
   // const fetchTodos = async () => {
   //   const response = await fetch("http://localhost:6001/todos");
   //   const data = await response.json();
 
   //   setTodo(data);
   // };
+
+  const fetchTodos = async () => {
+    const { data } = await axios.get("http://localhost:6001/todos");
+    setTodo(data);
+  };
 
   // const addTodo = async (newTodo) => {
   //   newTodo.id = uuidv4();
@@ -44,13 +45,27 @@ const Home = () => {
   const deleteTodo = (id) => {
     if (window.confirm("Are you sure you want to delete the ToDo?")) {
       setTodo(todo.filter((item) => item.id !== id));
+      axios
+        .delete(`http://localhost:6001/todos/${id}`)
+        .then((response) => {
+          console.log("User deleted successfully:", response.data);
+        })
+        .catch((error) => {
+          console.error("Error deleting user:", error);
+        });
+    }
+  };
+
+  const editTodo = (id) => {
+    if (window.confirm("Are you sure you want to delete the ToDo?")) {
+      setTodo(todo.filter((item) => item.id !== id));
     }
   };
 
   return (
     <div className="flex flex-col items-center m-auto">
       <Form addTodo={addTodo} />
-      <List todo={todo} handleDelete={deleteTodo} />
+      <List todo={todo} handleDelete={deleteTodo} editTodo={editTodo} />
     </div>
   );
 };

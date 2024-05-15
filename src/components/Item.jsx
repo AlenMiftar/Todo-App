@@ -24,7 +24,7 @@ const Item = ({ todo, handleDelete, editTodo }) => {
           <div className="btns flex  gap-3">
             <MdEdit
               style={{ color: "#f7cd62", marginRight: ".5rem" }}
-              onClick={() => editTodo(todo)}
+              onClick={() => editTodo(todo.id)}
             />
             <MdDeleteForever
               style={{ color: "#ed844f" }}
