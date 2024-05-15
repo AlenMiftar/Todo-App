@@ -12,12 +12,16 @@ const Home = () => {
     fetchTodos();
   }, []);
 
-  const fetchTodos = async () => {
-    const response = await fetch("http://localhost:6001/todos");
-    const data = await response.json();
-
-    setTodo(data);
+  const fetchTodos = () => {
+    axios.get("http://localhost:6001/todos");
   };
+
+  // const fetchTodos = async () => {
+  //   const response = await fetch("http://localhost:6001/todos");
+  //   const data = await response.json();
+
+  //   setTodo(data);
+  // };
 
   // const addTodo = async (newTodo) => {
   //   newTodo.id = uuidv4();
