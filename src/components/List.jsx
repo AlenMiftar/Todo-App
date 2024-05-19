@@ -1,6 +1,6 @@
 import Item from "./Item";
 
-const List = ({ todo, handleDelete, editTodo }) => {
+const List = ({ todo, handleDelete, markTodo, fetchTodos }) => {
   if (!todo || todo.length === 0) {
     return <p className="text-white">No ToDo's yet!</p>;
   }
@@ -11,7 +11,9 @@ const List = ({ todo, handleDelete, editTodo }) => {
           key={item.id}
           todo={item}
           handleDelete={handleDelete}
-          editTodo={editTodo}
+          markTodo={markTodo}
+          todos={todo}
+          fetchTodos={fetchTodos}
         />
       ))}
     </div>

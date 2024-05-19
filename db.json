@@ -11,14 +11,26 @@
       "username": "Inger",
       "email": "shöler@info.se",
       "password": "321321"
+    },
+    {
+      "id": "6beb",
+      "username": "Kicki",
+      "email": "kicki@info.se",
+      "password": "123456"
     }
   ],
   "todos": [
     {
-      "id": "a0485621-58b6-4602-97d4-2c76f1aa98ce",
-      "title": "ddd",
-      "task": "ddd",
-      "day": "Thursday"
+      "title": "io",
+      "task": "femtiofem",
+      "day": "Tuesday",
+      "id": "96c0c95b-dbba-477f-8e8e-4799d4ab6679"
+    },
+    {
+      "title": "tio",
+      "task": "sextio",
+      "day": "Monday",
+      "id": "0a26979f-7ad4-4a00-ab39-78ccdfe95581"
     }
   ]
 }

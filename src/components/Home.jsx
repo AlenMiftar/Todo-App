@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import List from "./List";
-import todoData from "../data/Todo.jsx";
 import Form from "./Form.jsx";
 import axios from "axios";
 
@@ -36,6 +35,7 @@ const Home = () => {
 
   const addTodo = (newTodo) => {
     newTodo.id = uuidv4();
+    newTodo.isDone = false;
     setTodo([newTodo, ...todo]);
     axios
       .post("http://localhost:6001/todos", newTodo)
@@ -48,7 +48,7 @@ const Home = () => {
       axios
         .delete(`http://localhost:6001/todos/${id}`)
         .then((response) => {
-          console.log("User deleted successfully:", response.data);
+          console.log("Todo deleted successfully:", response.data);
         })
         .catch((error) => {
           console.error("Error deleting user:", error);
@@ -56,16 +56,23 @@ const Home = () => {
     }
   };
 
-  const editTodo = (id) => {
-    if (window.confirm("Are you sure you want to delete the ToDo?")) {
-      setTodo(todo.filter((item) => item.id !== id));
+  const markTodo = (doneTodo) => {
+    if (todo) {
+      console.log(`Todo with id:${doneTodo} is marked as done!`);
+
+      fetchTodos();
     }
   };
 
   return (
     <div className="flex flex-col items-center m-auto">
-      <Form addTodo={addTodo} />
-      <List todo={todo} handleDelete={deleteTodo} editTodo={editTodo} />
+      <Form action={addTodo} />
+      <List
+        todo={todo}
+        handleDelete={deleteTodo}
+        markTodo={markTodo}
+        fetchTodos={fetchTodos}
+      />
     </div>
   );
 };

@@ -2,10 +2,10 @@ import { useState } from "react";
 import Card from "./Card";
 import Button from "./Button";
 
-const Form = ({ addTodo }) => {
-  const [title, setTitle] = useState("");
-  const [task, setTask] = useState("");
-  const [day, setDay] = useState("");
+const Form = ({ action, todo }) => {
+  const [title, setTitle] = useState(todo?.title || "");
+  const [task, setTask] = useState(todo?.task || "");
+  const [day, setDay] = useState(todo?.day || "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const Form = ({ addTodo }) => {
     if (title === "" || task === "" || day === "") {
       alert("Please fill in title, task and day!");
     } else {
-      addTodo(newTodo);
+      action(newTodo);
       console.log(newTodo);
 
       setTitle("");
@@ -53,7 +53,7 @@ const Form = ({ addTodo }) => {
             />
           </label>
 
-          <label htmlFor="" className="w-44">
+          <label htmlFor="day" className="w-44">
             <p>Day</p>
             <select
               value={day}
