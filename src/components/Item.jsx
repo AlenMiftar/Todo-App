@@ -85,7 +85,7 @@ const Item = ({ todo, handleDelete, fetchTodos }) => {
 
               <Checkbox
                 label={done === true ? "Done" : "Doing"}
-                value={todo.isChecked}
+                value={todo.isDone}
                 onChange={handleChange}
               />
             </div>

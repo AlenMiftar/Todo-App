@@ -25,14 +25,14 @@
       "title": "1",
       "task": "1",
       "day": "Monday",
-      "isDone": false
+      "isDone": true
     },
     {
       "title": "2",
       "task": "2",
       "day": "Wednesday",
       "id": "ee9f481a-87d7-4a44-8c7a-b58e74d1e758",
-      "isDone": false
+      "isDone": true
     }
   ]
 }
