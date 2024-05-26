@@ -36,8 +36,9 @@ const Item = ({ todo, handleDelete, fetchTodos }) => {
       confirm = true;
     }
     if (confirm) {
+      const changedTodo = { ...todo, ...updatedTodo };
       axios
-        .put(`http://localhost:6001/todos/${todo.id}`, updatedTodo)
+        .put(`http://localhost:6001/todos/${todo.id}`, changedTodo)
         .then((response) => {
           if (!isChecked) alert("Todo updated successfully:");
           fetchTodos();

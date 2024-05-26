@@ -21,10 +21,17 @@
   ],
   "todos": [
     {
-      "id": "5f6ef893-4fd5-4d74-ab66-5c9893869b19",
-      "title": "d",
-      "task": "d",
-      "day": "Tuesday",
+      "id": "ec95c9d5-eecc-457b-aecf-06f359a2dabc",
+      "title": "1",
+      "task": "1",
+      "day": "Monday",
+      "isDone": false
+    },
+    {
+      "title": "2",
+      "task": "2",
+      "day": "Wednesday",
+      "id": "ee9f481a-87d7-4a44-8c7a-b58e74d1e758",
       "isDone": false
     }
   ]

@@ -34,10 +34,10 @@ const Home = () => {
   //   alert("Todo added successfully!");
   // };
 
-  const addTodo = (newTodo, updatedTodo) => {
+  const addTodo = (newTodo) => {
     newTodo.id = uuidv4();
     newTodo.isDone = false;
-    setTodo([newTodo, ...todo, updatedTodo]);
+    setTodo([newTodo, ...todo]);
     axios
       .post("http://localhost:6001/todos", newTodo)
       .then(alert("Todo added successfully!"));
@@ -75,21 +75,13 @@ const Home = () => {
     }
   };
 
-  // const markTodo = (doneTodo) => {
-  //   if (newTodo.isDone === true) {
-  //     console.log(`Todo with id:${doneTodo} is marked as done!`);
-  //   } else {
-  //     console.log(`Todo is not done yet`);
-  //   }
-  // };
-
   return (
     <div className="flex flex-col items-center m-auto">
       <Form action={addTodo} />
       <List
         todo={todo}
         handleDelete={deleteTodo}
-        onChange={onchange}
+        handleChange={onchange}
         fetchTodos={fetchTodos}
       />
     </div>
