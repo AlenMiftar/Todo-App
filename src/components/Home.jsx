@@ -43,23 +43,6 @@ const Home = () => {
       .then(alert("Todo added successfully!"));
   };
 
-  // const checkedTodo = (doneTodo) => {
-  //   if (window.confirm("Are you sure you want to mark the ToDo as done?")) {
-  //     newtodo.isDone = true;
-  //     console.log(todo);
-  //     axios
-  //       .put(`http://localhost:6001/todos/${newTodo.isDone}`, doneTodo)
-  //       .then((response) => {
-  //         alert("Todo marked as done and updated successfully:");
-  //         fetchTodos();
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error updating todo:", error);
-  //       });
-
-  //   }
-  // };
-
   const deleteTodo = (id) => {
     if (window.confirm("Are you sure you want to delete the ToDo?")) {
       setTodo(todo.filter((item) => item.id !== id));
@@ -78,12 +61,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center m-auto">
       <Form action={addTodo} />
-      <List
-        todo={todo}
-        handleDelete={deleteTodo}
-        handleChange={onchange}
-        fetchTodos={fetchTodos}
-      />
+      <List todo={todo} handleDelete={deleteTodo} fetchTodos={fetchTodos} />
     </div>
   );
 };

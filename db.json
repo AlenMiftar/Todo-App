@@ -22,16 +22,30 @@
   "todos": [
     {
       "id": "ec95c9d5-eecc-457b-aecf-06f359a2dabc",
-      "title": "1",
-      "task": "1",
-      "day": "Monday",
+      "title": "12",
+      "task": "1s",
+      "day": "Tuesday",
       "isDone": true
     },
     {
       "title": "2",
       "task": "2",
-      "day": "Wednesday",
+      "day": "Sunday",
       "id": "ee9f481a-87d7-4a44-8c7a-b58e74d1e758",
+      "isDone": true
+    },
+    {
+      "title": "tyyp",
+      "task": "t",
+      "day": "Thursday",
+      "id": "7bbbbcce-f956-440c-9321-efb47a7fca9a",
+      "isDone": true
+    },
+    {
+      "id": "5f32428f-eb0a-43dd-93f9-b373b14d3d4c",
+      "title": "test",
+      "task": "1test",
+      "day": "Friday",
       "isDone": true
     }
   ]

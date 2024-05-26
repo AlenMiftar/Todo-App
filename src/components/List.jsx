@@ -1,8 +1,8 @@
 import Item from "./Item";
 
-const List = ({ todo, handleDelete, fetchTodos, onChange }) => {
+const List = ({ todo, handleDelete, fetchTodos }) => {
   if (!todo || todo.length === 0) {
-    return <p className="text-white">No ToDo's yet!</p>;
+    return <p className="text-white">No ToDo's yet, try to add one!</p>;
   }
   return (
     <div className="bg-black text-white rounded-xl">
@@ -12,7 +12,6 @@ const List = ({ todo, handleDelete, fetchTodos, onChange }) => {
           todo={item}
           handleDelete={handleDelete}
           todos={todo}
-          handleChange={onChange}
           fetchTodos={fetchTodos}
         />
       ))}
