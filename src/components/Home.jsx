@@ -11,6 +11,7 @@ const Home = () => {
     fetchTodos();
   }, []);
 
+  // built in fetch request
   // const fetchTodos = async () => {
   //   const response = await fetch("http://localhost:6001/todos");
   //   const data = await response.json();
@@ -33,14 +34,31 @@ const Home = () => {
   //   alert("Todo added successfully!");
   // };
 
-  const addTodo = (newTodo) => {
+  const addTodo = (newTodo, updatedTodo) => {
     newTodo.id = uuidv4();
     newTodo.isDone = false;
-    setTodo([newTodo, ...todo]);
+    setTodo([newTodo, ...todo, updatedTodo]);
     axios
       .post("http://localhost:6001/todos", newTodo)
       .then(alert("Todo added successfully!"));
   };
+
+  // const checkedTodo = (doneTodo) => {
+  //   if (window.confirm("Are you sure you want to mark the ToDo as done?")) {
+  //     newtodo.isDone = true;
+  //     console.log(todo);
+  //     axios
+  //       .put(`http://localhost:6001/todos/${newTodo.isDone}`, doneTodo)
+  //       .then((response) => {
+  //         alert("Todo marked as done and updated successfully:");
+  //         fetchTodos();
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error updating todo:", error);
+  //       });
+
+  //   }
+  // };
 
   const deleteTodo = (id) => {
     if (window.confirm("Are you sure you want to delete the ToDo?")) {
@@ -48,6 +66,7 @@ const Home = () => {
       axios
         .delete(`http://localhost:6001/todos/${id}`)
         .then((response) => {
+          alert("Todo deleted successfully:", response.data);
           console.log("Todo deleted successfully:", response.data);
         })
         .catch((error) => {
@@ -56,13 +75,13 @@ const Home = () => {
     }
   };
 
-  const markTodo = (doneTodo) => {
-    if (todo) {
-      console.log(`Todo with id:${doneTodo} is marked as done!`);
-
-      fetchTodos();
-    }
-  };
+  // const markTodo = (doneTodo) => {
+  //   if (newTodo.isDone === true) {
+  //     console.log(`Todo with id:${doneTodo} is marked as done!`);
+  //   } else {
+  //     console.log(`Todo is not done yet`);
+  //   }
+  // };
 
   return (
     <div className="flex flex-col items-center m-auto">
@@ -70,7 +89,7 @@ const Home = () => {
       <List
         todo={todo}
         handleDelete={deleteTodo}
-        markTodo={markTodo}
+        onChange={onchange}
         fetchTodos={fetchTodos}
       />
     </div>

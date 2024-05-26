@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import { BsPlus } from "react-icons/bs";
 
 const Button = ({ children, type, isDisabled }) => {
@@ -14,15 +14,15 @@ const Button = ({ children, type, isDisabled }) => {
   );
 };
 
-Button.defaultProps = {
+Button.default = {
   type: "Button",
   isDisabled: false,
 };
 
-Button.PropTypes = {
-  children: PropTypes.node.isRequired,
-  type: PropTypes.string,
-  isDisabled: PropTypes.bool,
+Button.propTypes = {
+  children: propTypes.node.isRequired,
+  type: propTypes.string,
+  isDisabled: propTypes.bool,
 };
 
 export default Button;

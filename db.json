@@ -21,16 +21,11 @@
   ],
   "todos": [
     {
-      "title": "io",
-      "task": "femtiofem",
+      "id": "5f6ef893-4fd5-4d74-ab66-5c9893869b19",
+      "title": "d",
+      "task": "d",
       "day": "Tuesday",
-      "id": "96c0c95b-dbba-477f-8e8e-4799d4ab6679"
-    },
-    {
-      "title": "tio",
-      "task": "sextio",
-      "day": "Monday",
-      "id": "0a26979f-7ad4-4a00-ab39-78ccdfe95581"
+      "isDone": false
     }
   ]
 }

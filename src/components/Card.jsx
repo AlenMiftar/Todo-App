@@ -21,7 +21,7 @@ const Card = ({ children, reverse, create }) => {
   );
 };
 
-Card.defaultProps = {
+Card.default = {
   reverse: false,
   create: false,
 };

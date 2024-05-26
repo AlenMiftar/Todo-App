@@ -1,14 +1,25 @@
-const Checkbox = ({ label, value, onChange, onClick }) => {
+const Checkbox = ({ label, value, onChange }) => {
   return (
-    <label>
+    <label
+      style={{
+        padding: "1rem",
+        color: "green",
+        cursor: "pointer",
+        backgroundcolor: "green",
+      }}
+    >
       <input
+        style={{
+          padding: "1rem",
+          color: "green",
+          cursor: "pointer",
+          backgroundcolor: "green",
+        }}
         type="checkbox"
         checked={value}
         onChange={onChange}
-        onClick={onClick}
-        style={{ color: "green", cursor: "pointer" }}
       />
-      <p className="">{label}</p>
+      <p style={{ backgroundcolor: "green", color: "green" }}>{label}</p>
     </label>
   );
 };

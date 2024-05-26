@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   MdDeleteForever,
   MdEdit,
@@ -9,20 +9,37 @@ import Checkbox from "./Checkbox";
 import Form from "./Form";
 import axios from "axios";
 
-const Item = ({ todo, handleDelete, markTodo, fetchTodos }) => {
-  const [done, setDone] = useState(todo.done);
+const Item = ({ todo, handleDelete, fetchTodos }) => {
+  const [done, setDone] = useState(todo.isDone);
   const [edit, setEdit] = useState(false);
 
+  const [updatedTodo, setUpdatedTodo] = useState(null);
+
+  useEffect(() => {
+    if (updatedTodo) {
+      editTodo(updatedTodo, true);
+    }
+  }, [updatedTodo]);
+
   const handleChange = (e) => {
-    e.target.checked;
+    const isChecked = e.target.checked;
+    setDone(isChecked);
+    const checkedTodo = { ...todo, isDone: isChecked };
+    setUpdatedTodo(checkedTodo);
   };
 
-  const editTodo = (updatedTodo) => {
-    if (window.confirm("Are you sure you want to edit the ToDo?")) {
+  const editTodo = (updatedTodo, isChecked) => {
+    let confirm = false;
+    if (!isChecked) {
+      confirm = window.confirm("Are you sure you want to edit the ToDo?");
+    } else {
+      confirm = true;
+    }
+    if (confirm) {
       axios
         .put(`http://localhost:6001/todos/${todo.id}`, updatedTodo)
         .then((response) => {
-          alert("Todo updated successfully:");
+          if (!isChecked) alert("Todo updated successfully:");
           fetchTodos();
         })
         .catch((error) => {
@@ -30,6 +47,7 @@ const Item = ({ todo, handleDelete, markTodo, fetchTodos }) => {
         });
     }
     setEdit(false);
+    setUpdatedTodo(null);
   };
 
   return (
@@ -66,9 +84,8 @@ const Item = ({ todo, handleDelete, markTodo, fetchTodos }) => {
 
               <Checkbox
                 label={done === true ? "Done" : "Doing"}
-                value={done}
+                value={todo.isChecked}
                 onChange={handleChange}
-                onClick={() => markTodo(todo.id)}
               />
             </div>
           </div>
