@@ -20,8 +20,14 @@ const Home = () => {
   // };
 
   const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:6001/todos");
-    setTodo(data);
+    // const { data } = await axios.get("http://localhost:6001/todos");
+    // setTodo(data);
+
+    const data = localStorage.getItem("todos");
+    if (data) {
+      const parsedata = JSON.parse(data);
+      setTodo(parsedata);
+    }
   };
 
   // const addTodo = async (newTodo) => {
@@ -37,24 +43,31 @@ const Home = () => {
   const addTodo = (newTodo) => {
     newTodo.id = uuidv4();
     newTodo.isDone = false;
-    setTodo([newTodo, ...todo]);
-    axios
-      .post("http://localhost:6001/todos", newTodo)
-      .then(alert("Todo added successfully!"));
+    // setTodo([newTodo, ...todo]);
+    // axios
+    //   .post("http://localhost:6001/todos", newTodo)
+    //   .then(alert("Todo added successfully!"));
+    localStorage.setItem("todos", JSON.stringify([newTodo, ...todo]));
+    fetchTodos();
+    alert("Todo added successfully");
   };
 
   const deleteTodo = (id) => {
     if (window.confirm("Are you sure you want to delete the ToDo?")) {
-      setTodo(todo.filter((item) => item.id !== id));
-      axios
-        .delete(`http://localhost:6001/todos/${id}`)
-        .then((response) => {
-          alert("Todo deleted successfully:", response.data);
-          console.log("Todo deleted successfully:", response.data);
-        })
-        .catch((error) => {
-          console.error("Error deleting user:", error);
-        });
+      const filterTodos = todo.filter((item) => item.id !== id);
+      localStorage.setItem("todos", JSON.stringify(filterTodos));
+      fetchTodos();
+
+      // setTodo(todo.filter((item) => item.id !== id));
+      // axios
+      //   .delete(`http://localhost:6001/todos/${id}`)
+      //   .then((response) => {
+      //     alert("Todo deleted successfully:", response.data);
+      //     console.log("Todo deleted successfully:", response.data);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error deleting user:", error);
+      //   });
     }
   };
 

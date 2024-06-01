@@ -12,9 +12,17 @@ import axios from "axios";
 const Item = ({ todo, handleDelete, fetchTodos }) => {
   const [done, setDone] = useState(todo.isDone);
   const [edit, setEdit] = useState(false);
+  const [todos, setTodos] = useState();
 
   const [updatedTodo, setUpdatedTodo] = useState(null);
 
+  useEffect(() => {
+    const data = localStorage.getItem("todos");
+    if (data) {
+      const parsedata = JSON.parse(data);
+      setTodos(parsedata);
+    }
+  }, []);
   useEffect(() => {
     if (updatedTodo) {
       editTodo(updatedTodo, true);
@@ -37,15 +45,23 @@ const Item = ({ todo, handleDelete, fetchTodos }) => {
     }
     if (confirm) {
       const changedTodo = { ...todo, ...updatedTodo };
-      axios
-        .put(`http://localhost:6001/todos/${todo.id}`, changedTodo)
-        .then((response) => {
-          if (!isChecked) alert("Todo updated successfully:");
-          fetchTodos();
-        })
-        .catch((error) => {
-          console.error("Error updating todo:", error);
-        });
+      const updatedlist = todos.filter((item) => item.id !== changedTodo.id);
+
+      localStorage.setItem(
+        "todos",
+        JSON.stringify([...updatedlist, changedTodo])
+      );
+      fetchTodos();
+
+      // axios
+      //   .put(`http://localhost:6001/todos/${todo.id}`, changedTodo)
+      //   .then((response) => {
+      //     if (!isChecked) alert("Todo updated successfully:");
+      //     fetchTodos();
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error updating todo:", error);
+      //   });
     }
     setEdit(false);
     setUpdatedTodo(null);

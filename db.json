@@ -25,5 +25,13 @@
       "password": "123456"
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "id": "280e0eac-7897-4524-8503-21786bf8e938",
+      "title": "cdfdf",
+      "task": "dsda",
+      "day": "Wednesday",
+      "isDone": false
+    }
+  ]
 }
