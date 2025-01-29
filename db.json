@@ -23,6 +23,12 @@
       "username": "jacob",
       "email": "jacob@info.se",
       "password": "123456"
+    },
+    {
+      "id": "a513",
+      "username": "kalle",
+      "email": "kaviar@info.se",
+      "password": "123456"
     }
   ],
   "todos": [
